@@ -1,9 +1,4 @@
-"""
-Person B - Ollama Integration + Prompt Engineering
-Run: pip install requests
-Make sure Ollama is running: ollama serve
-And model is pulled: ollama pull llama3.1
-"""
+
 
 import requests
 import json
