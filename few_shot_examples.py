@@ -1,5 +1,4 @@
-# Real Frappe Builder page examples extracted from builder.localhost
-# Person B: paste these into the system prompt so the LLM sees real valid output
+# Frappe Builder page examples extracted from builder.localhost
 
 EXAMPLE_1 = {
     "description": "landing page with navbar, hero section with heading and two buttons",
