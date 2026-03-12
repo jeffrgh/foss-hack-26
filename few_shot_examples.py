@@ -1,4 +1,4 @@
-# Frappe Builder page examples extracted from builder.localhost
+
 
 EXAMPLE_1 = {
     "description": "landing page with navbar, hero section with heading and two buttons",
@@ -228,15 +228,132 @@ EXAMPLE_2 = {
 }
 
 
+EXAMPLE_3 = {
+    "description": "coffee shop page with navbar, dark hero section with centered heading, tagline, and order now button",
+    "page_title": "Coffee Shop",
+    "blocks": [
+        {
+            "blockId": "root",
+            "element": "div",
+            "originalElement": "body",
+            "draggable": False,
+            "children": [
+                {
+                    "blockId": "1b30ourvn",
+                    "element": "header",
+                    "blockName": "navbar",
+                    "children": [],
+                    "baseStyles": {"alignItems": "center", "display": "flex", "flexDirection": "row", "justifyContent": "center", "width": "100%"},
+                    "mobileStyles": {}, "tabletStyles": {}, "rawStyles": {},
+                    "classes": [], "dataKey": None, "dynamicValues": [],
+                    "blockClientScript": "", "blockDataScript": "",
+                    "props": {}, "customAttributes": {}, "activeState": None
+                },
+                {
+                    "blockId": "y172bydtd",
+                    "element": "section",
+                    "blockName": "hero",
+                    "children": [
+                        {
+                            "blockId": "e3q1ren1n",
+                            "element": "div",
+                            "blockName": "container",
+                            "children": [
+                                {
+                                    "blockId": "xnedtn8n5",
+                                    "element": "h1",
+                                    "children": [],
+                                    "innerHTML": "Expertly crafted coffee",
+                                    "baseStyles": {"color": "#FFF", "fontSize": "48px", "fontWeight": "700", "lineHeight": "104%", "maxWidth": "450px", "textAlign": "center"},
+                                    "mobileStyles": {"fontSize": "34px"}, "tabletStyles": {}, "rawStyles": {},
+                                    "classes": [], "dataKey": None, "dynamicValues": [],
+                                    "blockClientScript": "", "blockDataScript": "",
+                                    "props": {}, "customAttributes": {}, "activeState": None
+                                },
+                                {
+                                    "blockId": "la28139uz",
+                                    "element": "p",
+                                    "children": [],
+                                    "innerHTML": "<p>Experience the rich flavors of our expertly roasted coffee.</p>",
+                                    "baseStyles": {"color": "#FFF", "fontSize": "16px", "maxWidth": "350px", "textAlign": "center"},
+                                    "mobileStyles": {}, "tabletStyles": {}, "rawStyles": {},
+                                    "classes": [], "dataKey": None, "dynamicValues": [],
+                                    "blockClientScript": "", "blockDataScript": "",
+                                    "props": {}, "customAttributes": {}, "activeState": None
+                                },
+                                {
+                                    "blockId": "tfewi8dhz",
+                                    "element": "div",
+                                    "blockName": "actions",
+                                    "children": [
+                                        {
+                                            "blockId": "o12wwgkuj",
+                                            "element": "a",
+                                            "blockName": "get-started",
+                                            "children": [
+                                                {
+                                                    "blockId": "0r1vo5jrc",
+                                                    "element": "p",
+                                                    "children": [],
+                                                    "innerHTML": "<p>Order Now</p>",
+                                                    "baseStyles": {"color": "#FFF", "fontSize": "14px"},
+                                                    "mobileStyles": {}, "tabletStyles": {}, "rawStyles": {},
+                                                    "classes": [], "dataKey": None, "dynamicValues": [],
+                                                    "blockClientScript": "", "blockDataScript": "",
+                                                    "props": {}, "customAttributes": {}, "activeState": None
+                                                }
+                                            ],
+                                            "attributes": {"href": "/order-now"},
+                                            "baseStyles": {"alignItems": "center", "backgroundColor": "#333", "borderRadius": "12px", "display": "flex", "justifyContent": "center", "paddingBottom": "12px", "paddingLeft": "14px", "paddingRight": "14px", "paddingTop": "12px"},
+                                            "mobileStyles": {}, "tabletStyles": {}, "rawStyles": {},
+                                            "classes": [], "dataKey": None, "dynamicValues": [],
+                                            "blockClientScript": "", "blockDataScript": "",
+                                            "props": {}, "customAttributes": {}, "activeState": None
+                                        }
+                                    ],
+                                    "baseStyles": {"display": "flex", "flexDirection": "row", "gap": "12px", "marginTop": "26px"},
+                                    "mobileStyles": {}, "tabletStyles": {}, "rawStyles": {},
+                                    "classes": [], "dataKey": None, "dynamicValues": [],
+                                    "blockClientScript": "", "blockDataScript": "",
+                                    "props": {}, "customAttributes": {}, "activeState": None
+                                }
+                            ],
+                            "baseStyles": {"alignItems": "center", "display": "flex", "flexDirection": "column", "justifyContent": "center", "width": "100%"},
+                            "mobileStyles": {}, "tabletStyles": {}, "rawStyles": {},
+                            "classes": [], "dataKey": None, "dynamicValues": [],
+                            "blockClientScript": "", "blockDataScript": "",
+                            "props": {}, "customAttributes": {}, "activeState": None
+                        }
+                    ],
+                    "baseStyles": {"alignItems": "center", "display": "flex", "flexDirection": "column", "justifyContent": "center", "width": "100%"},
+                    "mobileStyles": {}, "tabletStyles": {}, "rawStyles": {},
+                    "classes": [], "dataKey": None, "dynamicValues": [],
+                    "blockClientScript": "", "blockDataScript": "",
+                    "props": {}, "customAttributes": {}, "activeState": None
+                }
+            ],
+            "baseStyles": {"alignItems": "center", "display": "flex", "flexDirection": "column", "flexShrink": 0, "position": "relative"},
+            "mobileStyles": {}, "tabletStyles": {}, "rawStyles": {},
+            "classes": [], "dataKey": None, "dynamicValues": [],
+            "blockClientScript": "", "blockDataScript": "",
+            "props": {}, "customAttributes": {}, "activeState": None
+        }
+    ]
+}
+
+
 import json
 
-FEW_SHOT_PROMPT = f"""Here are two real examples of valid Frappe Builder page JSON:
+FEW_SHOT_PROMPT = f"""Here are three real examples of valid Frappe Builder page JSON:
 
 EXAMPLE 1 ({EXAMPLE_1['description']}):
 {json.dumps({"page_title": EXAMPLE_1["page_title"], "blocks": EXAMPLE_1["blocks"]}, indent=2)}
 
 EXAMPLE 2 ({EXAMPLE_2['description']}):
 {json.dumps({"page_title": EXAMPLE_2["page_title"], "blocks": EXAMPLE_2["blocks"]}, indent=2)}
+
+EXAMPLE 3 ({EXAMPLE_3['description']}):
+{json.dumps({"page_title": EXAMPLE_3["page_title"], "blocks": EXAMPLE_3["blocks"]}, indent=2)}
 
 Now generate a similar JSON for the following description. Follow the exact same structure. JSON only, nothing else:
 """
