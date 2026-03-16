@@ -1,10 +1,11 @@
 
-
 import requests
 import json
 import re
 import uuid
 
+
+from few_shot_examples import FEW_SHOT_PROMPT
 
 OLLAMA_URL = "http://localhost:11434/api/generate"
 MODEL = "llama3.1"
@@ -44,27 +45,35 @@ def random_id():
 
 
 def call_ollama(prompt):
-    res = requests.post(OLLAMA_URL, json={
-        "model": MODEL,
-        "prompt": prompt,
-        "system": SYSTEM_PROMPT,
-        "stream": False,
-        "options": {"temperature": 0.3}
-    }, timeout=120)
+    res = requests.post(
+        OLLAMA_URL,
+        json={
+            "model": MODEL,
+            "prompt": prompt,
+            "system": SYSTEM_PROMPT,
+            "format": "json",
+            "stream": False,
+            "options": {"temperature": 0.3},
+        },
+        timeout=1200,
+    )
     res.raise_for_status()
     return res.json()["response"]
 
 
 def clean_output(text):
     text = text.strip()
-    text = re.sub(r'^```json\s*', '', text)
-    text = re.sub(r'^```\s*', '', text)
-    text = re.sub(r'\s*```$', '', text)
+    text = re.sub(r"^```json\s*", "", text)
+    text = re.sub(r"^```\s*", "", text)
+    text = re.sub(r"\s*```$", "", text)
     return text.strip()
 
 
 def generate_page(description):
-    prompt = f"Generate a Frappe Builder page JSON for: {description}\n\nJSON only, nothing else."
+    prompt = (
+        f"{FEW_SHOT_PROMPT}\n\nDescription: {description}\n\nJSON only, nothing else."
+    )
+
     raw = call_ollama(prompt)
     cleaned = clean_output(raw)
     return json.loads(cleaned)

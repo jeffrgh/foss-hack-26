@@ -1,0 +1,519 @@
+{
+  "page_title": "Pricing",
+  "blocks": [
+    {
+      "blockId": "root",
+      "element": "div",
+      "originalElement": "body",
+      "draggable": false,
+      "children": [
+        {
+          "blockId": "b9d3w4e5t6",
+          "element": "h1",
+          "children": [],
+          "innerHTML": "Pricing",
+          "baseStyles": {
+            "color": "#171717",
+            "fontSize": "48px",
+            "fontWeight": "bold",
+            "textAlign": "center",
+            "lineHeight": "140%"
+          },
+          "mobileStyles": {
+            "fontSize": "32px"
+          },
+          "tabletStyles": {},
+          "rawStyles": {},
+          "classes": [],
+          "dataKey": null,
+          "dynamicValues": [],
+          "blockClientScript": "",
+          "blockDataScript": "",
+          "props": {},
+          "customAttributes": {},
+          "activeState": null
+        },
+        {
+          "blockId": "y67h8u9i0",
+          "element": "div",
+          "blockName": "toggle",
+          "children": [
+            {
+              "blockId": "a1b2c3d4",
+              "element": "button",
+              "children": [],
+              "innerHTML": "Monthly",
+              "baseStyles": {
+                "backgroundColor": "#171717",
+                "borderRadius": "12px",
+                "color": "#FFF",
+                "paddingBottom": "12px",
+                "paddingLeft": "14px",
+                "paddingRight": "14px",
+                "paddingTop": "12px"
+              },
+              "mobileStyles": {},
+              "tabletStyles": {},
+              "rawStyles": {},
+              "classes": [],
+              "dataKey": null,
+              "dynamicValues": [],
+              "blockClientScript": "",
+              "blockDataScript": "",
+              "props": {},
+              "customAttributes": {},
+              "activeState": null
+            },
+            {
+              "blockId": "e5f6g7h8",
+              "element": "button",
+              "children": [],
+              "innerHTML": "Yearly",
+              "baseStyles": {
+                "backgroundColor": "#171717",
+                "borderRadius": "12px",
+                "color": "#FFF",
+                "paddingBottom": "12px",
+                "paddingLeft": "14px",
+                "paddingRight": "14px",
+                "paddingTop": "12px"
+              },
+              "mobileStyles": {},
+              "tabletStyles": {},
+              "rawStyles": {},
+              "classes": [],
+              "dataKey": null,
+              "dynamicValues": [],
+              "blockClientScript": "",
+              "blockDataScript": "",
+              "props": {},
+              "customAttributes": {},
+              "activeState": null
+            }
+          ],
+          "baseStyles": {
+            "alignItems": "center",
+            "display": "flex",
+            "flexDirection": "row",
+            "gap": "40px"
+          },
+          "mobileStyles": {},
+          "tabletStyles": {},
+          "rawStyles": {},
+          "classes": [],
+          "dataKey": null,
+          "dynamicValues": [],
+          "blockClientScript": "",
+          "blockDataScript": "",
+          "props": {},
+          "customAttributes": {},
+          "activeState": null
+        },
+        {
+          "blockId": "c4d3b2a1",
+          "element": "div",
+          "blockName": "pricing-card",
+          "children": [
+            {
+              "blockId": "f1e2d3c",
+              "element": "h2",
+              "children": [],
+              "innerHTML": "Pro",
+              "baseStyles": {
+                "color": "#171717",
+                "fontSize": "24px",
+                "fontWeight": "bold",
+                "textAlign": "center"
+              },
+              "mobileStyles": {
+                "fontSize": "20px"
+              },
+              "tabletStyles": {},
+              "rawStyles": {},
+              "classes": [],
+              "dataKey": null,
+              "dynamicValues": [],
+              "blockClientScript": "",
+              "blockDataScript": "",
+              "props": {},
+              "customAttributes": {},
+              "activeState": null
+            },
+            {
+              "blockId": "g5h6i7j8",
+              "element": "p",
+              "children": [],
+              "innerHTML": "Features include:",
+              "baseStyles": {
+                "color": "#525252",
+                "fontSize": "16px",
+                "maxWidth": "300px",
+                "textAlign": "left"
+              },
+              "mobileStyles": {},
+              "tabletStyles": {},
+              "rawStyles": {},
+              "classes": [],
+              "dataKey": null,
+              "dynamicValues": [],
+              "blockClientScript": "",
+              "blockDataScript": "",
+              "props": {},
+              "customAttributes": {},
+              "activeState": null
+            },
+            {
+              "blockId": "k9l8m7n6",
+              "element": "p",
+              "children": [],
+              "innerHTML": "Price: $49/month",
+              "baseStyles": {
+                "color": "#171717",
+                "fontSize": "24px",
+                "fontWeight": "bold",
+                "textAlign": "center"
+              },
+              "mobileStyles": {
+                "fontSize": "20px"
+              },
+              "tabletStyles": {},
+              "rawStyles": {},
+              "classes": [],
+              "dataKey": null,
+              "dynamicValues": [],
+              "blockClientScript": "",
+              "blockDataScript": "",
+              "props": {},
+              "customAttributes": {},
+              "activeState": null
+            }
+          ],
+          "baseStyles": {
+            "alignItems": "center",
+            "display": "flex",
+            "flexDirection": "column",
+            "justifyContent": "center",
+            "paddingBottom": "40px",
+            "paddingLeft": "20px",
+            "paddingRight": "20px",
+            "paddingTop": "40px"
+          },
+          "mobileStyles": {},
+          "tabletStyles": {},
+          "rawStyles": {},
+          "classes": [],
+          "dataKey": null,
+          "dynamicValues": [],
+          "blockClientScript": "",
+          "blockDataScript": "",
+          "props": {},
+          "customAttributes": {},
+          "activeState": null
+        },
+        {
+          "blockId": "v6b5a4c3",
+          "element": "div",
+          "blockName": "pricing-card",
+          "children": [
+            {
+              "blockId": "n7m6l5k4",
+              "element": "h2",
+              "children": [],
+              "innerHTML": "Pro",
+              "baseStyles": {
+                "color": "#171717",
+                "fontSize": "24px",
+                "fontWeight": "bold",
+                "textAlign": "center"
+              },
+              "mobileStyles": {
+                "fontSize": "20px"
+              },
+              "tabletStyles": {},
+              "rawStyles": {},
+              "classes": [],
+              "dataKey": null,
+              "dynamicValues": [],
+              "blockClientScript": "",
+              "blockDataScript": "",
+              "props": {},
+              "customAttributes": {},
+              "activeState": null
+            },
+            {
+              "blockId": "o8p7q6r5",
+              "element": "p",
+              "children": [],
+              "innerHTML": "Features include:",
+              "baseStyles": {
+                "color": "#525252",
+                "fontSize": "16px",
+                "maxWidth": "300px",
+                "textAlign": "left"
+              },
+              "mobileStyles": {},
+              "tabletStyles": {},
+              "rawStyles": {},
+              "classes": [],
+              "dataKey": null,
+              "dynamicValues": [],
+              "blockClientScript": "",
+              "blockDataScript": "",
+              "props": {},
+              "customAttributes": {},
+              "activeState": null
+            },
+            {
+              "blockId": "s9d8c7b",
+              "element": "p",
+              "children": [],
+              "innerHTML": "Price: $49/month",
+              "baseStyles": {
+                "color": "#171717",
+                "fontSize": "24px",
+                "fontWeight": "bold",
+                "textAlign": "center"
+              },
+              "mobileStyles": {
+                "fontSize": "20px"
+              },
+              "tabletStyles": {},
+              "rawStyles": {},
+              "classes": [],
+              "dataKey": null,
+              "dynamicValues": [],
+              "blockClientScript": "",
+              "blockDataScript": "",
+              "props": {},
+              "customAttributes": {},
+              "activeState": null
+            }
+          ],
+          "baseStyles": {
+            "alignItems": "center",
+            "display": "flex",
+            "flexDirection": "column",
+            "justifyContent": "center",
+            "paddingBottom": "40px",
+            "paddingLeft": "20px",
+            "paddingRight": "20px",
+            "paddingTop": "40px"
+          },
+          "mobileStyles": {},
+          "tabletStyles": {},
+          "rawStyles": {},
+          "classes": [],
+          "dataKey": null,
+          "dynamicValues": [],
+          "blockClientScript": "",
+          "blockDataScript": "",
+          "props": {},
+          "customAttributes": {},
+          "activeState": null
+        },
+        {
+          "blockId": "x2z1y0w",
+          "element": "div",
+          "blockName": "pricing-card",
+          "children": [
+            {
+              "blockId": "b1v0u9t8",
+              "element": "h2",
+              "children": [],
+              "innerHTML": "Pro",
+              "baseStyles": {
+                "color": "#171717",
+                "fontSize": "24px",
+                "fontWeight": "bold",
+                "textAlign": "center"
+              },
+              "mobileStyles": {
+                "fontSize": "20px"
+              },
+              "tabletStyles": {},
+              "rawStyles": {},
+              "classes": [],
+              "dataKey": null,
+              "dynamicValues": [],
+              "blockClientScript": "",
+              "blockDataScript": "",
+              "props": {},
+              "customAttributes": {},
+              "activeState": null
+            },
+            {
+              "blockId": "c3s2r1q",
+              "element": "p",
+              "children": [],
+              "innerHTML": "Features include:",
+              "baseStyles": {
+                "color": "#525252",
+                "fontSize": "16px",
+                "maxWidth": "300px",
+                "textAlign": "left"
+              },
+              "mobileStyles": {},
+              "tabletStyles": {},
+              "rawStyles": {},
+              "classes": [],
+              "dataKey": null,
+              "dynamicValues": [],
+              "blockClientScript": "",
+              "blockDataScript": "",
+              "props": {},
+              "customAttributes": {},
+              "activeState": null
+            },
+            {
+              "blockId": "d4e5f6g",
+              "element": "p",
+              "children": [],
+              "innerHTML": "Price: $49/month",
+              "baseStyles": {
+                "color": "#171717",
+                "fontSize": "24px",
+                "fontWeight": "bold",
+                "textAlign": "center"
+              },
+              "mobileStyles": {
+                "fontSize": "20px"
+              },
+              "tabletStyles": {},
+              "rawStyles": {},
+              "classes": [],
+              "dataKey": null,
+              "dynamicValues": [],
+              "blockClientScript": "",
+              "blockDataScript": "",
+              "props": {},
+              "customAttributes": {},
+              "activeState": null
+            }
+          ],
+          "baseStyles": {
+            "alignItems": "center",
+            "display": "flex",
+            "flexDirection": "column",
+            "justifyContent": "center",
+            "paddingBottom": "40px",
+            "paddingLeft": "20px",
+            "paddingRight": "20px",
+            "paddingTop": "40px"
+          },
+          "mobileStyles": {},
+          "tabletStyles": {},
+          "rawStyles": {},
+          "classes": [],
+          "dataKey": null,
+          "dynamicValues": [],
+          "blockClientScript": "",
+          "blockDataScript": "",
+          "props": {},
+          "customAttributes": {},
+          "activeState": null
+        },
+        {
+          "blockId": "f7g6h5i",
+          "element": "div",
+          "blockName": "faq",
+          "children": [
+            {
+              "blockId": "k1m0l9n",
+              "element": "h2",
+              "children": [],
+              "innerHTML": "Frequently Asked Questions",
+              "baseStyles": {
+                "color": "#171717",
+                "fontSize": "24px",
+                "fontWeight": "bold",
+                "textAlign": "center"
+              },
+              "mobileStyles": {
+                "fontSize": "20px"
+              },
+              "tabletStyles": {},
+              "rawStyles": {},
+              "classes": [],
+              "dataKey": null,
+              "dynamicValues": [],
+              "blockClientScript": "",
+              "blockDataScript": "",
+              "props": {},
+              "customAttributes": {},
+              "activeState": null
+            },
+            {
+              "blockId": "l2o3p4q",
+              "element": "p",
+              "children": [],
+              "innerHTML": "What is included in the Pro plan?",
+              "baseStyles": {
+                "color": "#525252",
+                "fontSize": "16px",
+                "maxWidth": "300px",
+                "textAlign": "left"
+              },
+              "mobileStyles": {},
+              "tabletStyles": {},
+              "rawStyles": {},
+              "classes": [],
+              "dataKey": null,
+              "dynamicValues": [],
+              "blockClientScript": "",
+              "blockDataScript": "",
+              "props": {},
+              "customAttributes": {},
+              "activeState": null
+            },
+            {
+              "blockId": "m5r4s3t",
+              "element": "p",
+              "children": [],
+              "innerHTML": "How do I upgrade to the Pro plan?",
+              "baseStyles": {
+                "color": "#171717",
+                "fontSize": "24px",
+                "fontWeight": "bold",
+                "textAlign": "center"
+              },
+              "mobileStyles": {
+                "fontSize": "20px"
+              },
+              "tabletStyles": {},
+              "rawStyles": {},
+              "classes": [],
+              "dataKey": null,
+              "dynamicValues": [],
+              "blockClientScript": "",
+              "blockDataScript": "",
+              "props": {},
+              "customAttributes": {},
+              "activeState": null
+            }
+          ],
+          "baseStyles": {
+            "alignItems": "center",
+            "display": "flex",
+            "flexDirection": "column",
+            "justifyContent": "center",
+            "paddingBottom": "40px",
+            "paddingLeft": "20px",
+            "paddingRight": "20px",
+            "paddingTop": "40px"
+          },
+          "mobileStyles": {},
+          "tabletStyles": {},
+          "rawStyles": {},
+          "classes": [],
+          "dataKey": null,
+          "dynamicValues": [],
+          "blockClientScript": "",
+          "blockDataScript": "",
+          "props": {},
+          "customAttributes": {},
+          "activeState": null
+        }
+      ]
+    }
+  ]
+}
