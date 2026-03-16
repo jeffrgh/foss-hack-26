@@ -1,3 +1,4 @@
+from core.frappe_api import import_page, get_session
 import streamlit as st
 import requests
 import json
@@ -9,24 +10,6 @@ FRAPPE_USER = "Administrator"
 FRAPPE_PASS = "admin"
 OLLAMA_URL = "http://localhost:11434"
 
-
-def frappe_session():
-    s = requests.Session()
-    s.post(f"{FRAPPE_URL}/api/method/login", data={"usr": FRAPPE_USER, "pwd": FRAPPE_PASS}).raise_for_status()
-    return s
-
-
-def import_page(page_data, session):
-    blocks = page_data.get("blocks", [])
-    payload = {
-        "doctype": "Builder Page",
-        "page_title": page_data.get("page_title", "Generated Page"),
-        "published": 1,
-        "blocks": json.dumps(blocks) if isinstance(blocks, list) else blocks
-    }
-    res = session.post(f"{FRAPPE_URL}/api/resource/Builder Page", json=payload)
-    res.raise_for_status()
-    return res.json()
 
 
 def ollama_up():
@@ -101,11 +84,9 @@ with right:
         if st.button("Import to Frappe"):
             with st.spinner("Importing..."):
                 try:
-                    s = frappe_session()
-                    res = import_page(st.session_state.result, s)
-                    name = res.get("data", {}).get("name", "")
+                    res = import_page(st.session_state.result)
                     st.success("Imported!")
-                    st.markdown(f"[Open in Builder]({FRAPPE_URL}/builder/{name})")
+                    st.markdown(f"[Open in Builder]({res['url']})")
                 except Exception as e:
                     st.error(str(e))
     else:
