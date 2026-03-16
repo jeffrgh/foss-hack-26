@@ -61,8 +61,8 @@ st.caption("Describe a page, get Frappe Builder JSON, import in one click.")
 st.divider()
 
 c1, c2, _ = st.columns([1, 1, 4])
-c1.success("Ollama running" if ollama_up() else "Ollama offline")
-c2.success("Frappe running" if frappe_up() else "Frappe offline")
+c1.success("Ollama ✓") if ollama_ok() else c1.error("Ollama offline")
+c2.success("Frappe ✓") if frappe_ok() else c2.error("Frappe offline")
 
 st.divider()
 
