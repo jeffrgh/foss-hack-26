@@ -1,3 +1,7 @@
+import sys
+import os
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
+
 from core.ollama import generate_page
 from core.validator import validate
 from core.frappe_api import import_page, get_session

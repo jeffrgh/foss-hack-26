@@ -44,9 +44,8 @@ def frappe_up():
 
 
 def generate(description):
-    sys.path.insert(0, os.path.dirname(__file__))
-    from ollama_integration import generate_page
-    from validator import process
+    from core.ollama import generate_page
+    from core.validator import process
 
     result = generate_page(description)
     if isinstance(result, dict):
@@ -55,7 +54,6 @@ def generate(description):
     if err:
         raise ValueError(err)
     return fixed
-
 
 st.set_page_config(page_title="AI Page Builder", page_icon="🧠", layout="wide")
 st.title("AI Page Builder for Frappe")
