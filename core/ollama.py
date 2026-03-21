@@ -9,7 +9,6 @@ from few_shot_examples import FEW_SHOT_PROMPT
 
 OLLAMA_URL = "http://localhost:11434/api/generate"
 MODEL = "llama3.1"
-
 SYSTEM_PROMPT = """You generate Frappe Builder page JSON from a text description.
 
 Rules:
@@ -19,6 +18,11 @@ Rules:
 - root block always has blockId "root" and element "div"
 - leaf nodes still need "children": []
 - wrap text in innerHTML as <p> tags
+- always include a navbar, at least one hero section, and a footer
+- hero sections must have a heading, subheading, and at least one button
+- use real looking placeholder content relevant to the description
+- apply proper colors and spacing in baseStyles — never leave baseStyles empty on visible elements
+- inventory or card sections must have at least 3 cards with realistic content
 
 Output format:
 {
@@ -67,6 +71,14 @@ def clean_output(text):
     text = re.sub(r"^```\s*", "", text)
     text = re.sub(r"\s*```$", "", text)
     return text.strip()
+
+def enhance_prompt(description):
+    return (
+        f"{description}. "
+        "Include: a navbar with logo and nav links, a bold hero section with heading, "
+        "subheading and CTA button, relevant content sections with real placeholder text, "
+        "and a footer. Apply proper colors, padding and font sizes to all elements."
+    )
 
 
 def generate_page(description):

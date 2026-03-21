@@ -25,7 +25,7 @@ def import_page(page_data, session=None):
     res = session.post(f"{FRAPPE_URL}/api/resource/Builder Page", json=payload)
     res.raise_for_status()
     name = res.json().get("data", {}).get("name", "")
-    return {"name": name, "url": f"{FRAPPE_URL}/builder/{name}"}
+    return {"name": name, "url": f"{FRAPPE_URL}/builder/page/{name}"} 
 
 
 def is_running():
