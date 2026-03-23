@@ -26,11 +26,19 @@ def frappe_up():
         return False
 
 
-def generate(description):
-    from core.ollama import generate_page
+def generate(description, provider="Local Ollama", api_key=None):
+    from core.ollama import generate_page, generate_page_groq, generate_page_openai, generate_page_gemini
     from core.validator import process
 
-    result = generate_page(description)
+    if provider == "Groq" and api_key:
+        result = generate_page_groq(description, api_key)
+    elif provider == "OpenAI" and api_key:
+        result = generate_page_openai(description, api_key)
+    elif provider == "Gemini" and api_key:
+        result = generate_page_gemini(description, api_key)
+    else:
+        result = generate_page(description)
+
     if isinstance(result, dict):
         return result
     fixed, _, err = process(str(result))
@@ -81,7 +89,17 @@ with left:
     `A dark themed car dealership homepage with a navbar, bold hero saying Find Your Dream Car, 
     a red CTA button, a 3-card inventory grid showing car name price and View Details button, and a footer`
     """)
+    llm_provider = st.selectbox(
+        "LLM Provider",
+        ["Local Ollama", "Groq", "OpenAI", "Gemini"],
+        index=0
+    )
+    if llm_provider != "Local Ollama":
+        api_key = st.text_input("API Key", type="password", placeholder="Paste your API key here")
+    else:
+        api_key = None
     
+
     if "desc" in st.session_state:
         typed = st.text_area("", value=st.session_state.desc, height=150, label_visibility="collapsed")
     else:
@@ -101,25 +119,52 @@ with left:
     go = st.button("Generate", type="primary", disabled=not desc)
 
 with right:
-    st.subheader("Generated JSON")
+    st.subheader("Output")
 
     if "result" in st.session_state:
-        st.json(st.session_state.result)
-        if st.button("Import to Frappe"):
-            with st.spinner("Importing..."):
-                try:
-                    res = import_page(st.session_state.result)
-                    st.success("Imported!")
-                    st.markdown(f"[Open in Builder](http://127.0.0.1:8000/builder/page/{res['name']})")
-                except Exception as e:
-                    st.error(str(e))
+        with st.expander("View Generated JSON", expanded=False):
+            st.json(st.session_state.result)
+
+        if "imported_page" in st.session_state:
+            st.success("Imported!")
+            st.markdown(f"[Open in Builder](http://127.0.0.1:8000/builder/page/{st.session_state.imported_page})")
+
+            st.divider()
+            refinement = st.text_input("Refine your page", placeholder="make the hero red, add a testimonials section...")
+            refine_btn = st.button("Apply Refinement", disabled=not refinement)
+
+            if refine_btn and refinement:
+                with st.spinner("Refining..."):
+                    try:
+                        from core.ollama import refine_page
+                        from core.validator import validate
+                        from core.frappe_api import update_page
+                        updated = refine_page(st.session_state.result, refinement, api_key if llm_provider != "Local Ollama" else None)
+                        updated, _ = validate(updated)
+                        update_page(st.session_state.imported_page, updated)
+                        st.session_state.result = updated
+                        st.success("Page updated!")
+                        st.rerun()
+                    except Exception as e:
+                        st.error(str(e))
+        else:
+            if st.button("Import to Frappe"):
+                with st.spinner("Importing..."):
+                    try:
+                        res = import_page(st.session_state.result)
+                        st.session_state.imported_page = res["name"]
+                        st.success("Imported!")
+                        st.markdown(f"[Open in Builder](http://127.0.0.1:8000/builder/page/{res['name']})")
+                        st.rerun()
+                    except Exception as e:
+                        st.error(str(e))
     else:
-        st.info("JSON will appear here after generation.")
+        st.info("Output appears here after generation.")
 
 if go and desc:
     with st.spinner("Generating..."):
         try:
-            st.session_state.result = generate(desc)
+            st.session_state.result = generate(desc, provider=llm_provider, api_key=api_key)
             st.rerun()
         except Exception as e:
             st.error(str(e))

@@ -75,21 +75,21 @@ EXAMPLE = {
                             }
                         ],
                         "innerHTML": "",
-                        "baseStyles": {"alignItems": "center", "backgroundColor": "#c8a96e", "borderRadius": "8px", "display": "flex", "justifyContent": "center", "marginTop": "24px", "paddingBottom": "12px", "paddingLeft": "24px", "paddingRight": "24px", "paddingTop": "12px"},
+                        "baseStyles": {"alignItems": "center", "backgroundColor": "#444444", "borderRadius": "8px", "display": "flex", "justifyContent": "center", "marginTop": "24px", "paddingBottom": "12px", "paddingLeft": "24px", "paddingRight": "24px", "paddingTop": "12px"},
                         "mobileStyles": {}, "tabletStyles": {}, "rawStyles": {},
                         "attributes": {"href": "/order"}, "classes": [], "dataKey": None,
                         "dynamicValues": [], "blockClientScript": "", "blockDataScript": "",
                         "props": {}, "customAttributes": {}, "activeState": None
                     }
                 ],
-                "baseStyles": {"alignItems": "center", "backgroundColor": "#1a1a1a", "display": "flex", "flexDirection": "column", "justifyContent": "center", "paddingBottom": "120px", "paddingTop": "120px", "width": "100%"},
+                "baseStyles": {"alignItems": "center", "display": "flex", "flexDirection": "column", "justifyContent": "center", "paddingBottom": "120px", "paddingTop": "120px", "width": "100%"},
                 "mobileStyles": {}, "tabletStyles": {}, "rawStyles": {},
                 "attributes": {}, "classes": [], "dataKey": None,
                 "dynamicValues": [], "blockClientScript": "", "blockDataScript": "",
                 "props": {}, "customAttributes": {}, "activeState": None
             }
         ],
-        "baseStyles": {"alignItems": "center", "display": "flex", "flexDirection": "column", "flexShrink": 0, "position": "relative"},
+        "baseStyles": {"alignItems": "center", "backgroundColor": "#f8f8f8", "display": "flex", "flexDirection": "column", "flexShrink": 0, "position": "relative"},
         "mobileStyles": {}, "tabletStyles": {}, "rawStyles": {},
         "attributes": {}, "classes": [], "dataKey": None,
         "dynamicValues": [], "blockClientScript": "", "blockDataScript": "",
