@@ -1,5 +1,4 @@
-# AI Page Builder for Frappe
-
+# 1-Line-Website (AI Page Builder for Frappe)
 Describe a page in plain English. Get a fully structured Frappe Builder page in seconds.
 
 Type something like _"a dark SaaS landing page with pricing table and hero"_ and the app generates valid Frappe Builder JSON, imports it into your site, and opens it ready to edit — no JSON writing, no drag-and-drop from scratch. Helps get a head start with your ideas as you type them and form a visual representation making it easier to build your website.
