@@ -1,0 +1,200 @@
+{
+  "page_title": "Mobile App",
+  "blocks": [
+    {
+      "blockId": "root",
+      "element": "div",
+      "originalElement": "body",
+      "draggable": false,
+      "children": [
+        {
+          "blockId": "1q2w3e4r5t",
+          "element": "section",
+          "blockName": "hero",
+          "children": [
+            {
+              "blockId": "uiopasdfgh",
+              "element": "div",
+              "blockName": "container",
+              "children": [
+                {
+                  "blockId": "zxcvbnm123",
+                  "element": "h1",
+                  "children": [],
+                  "innerHTML": "Download Our Mobile App",
+                  "baseStyles": {
+                    "color": "#FFF",
+                    "fontSize": "48px",
+                    "fontWeight": "bold",
+                    "lineHeight": "140%",
+                    "maxWidth": "300px",
+                    "textAlign": "left"
+                  },
+                  "mobileStyles": {},
+                  "tabletStyles": {},
+                  "rawStyles": {},
+                  "classes": [],
+                  "dataKey": null,
+                  "dynamicValues": [],
+                  "blockClientScript": "",
+                  "blockDataScript": "",
+                  "props": {},
+                  "customAttributes": {},
+                  "activeState": null
+                },
+                {
+                  "blockId": "1234567890",
+                  "element": "a",
+                  "blockName": "ios-button",
+                  "children": [],
+                  "attributes": {
+                    "href": "/ios"
+                  },
+                  "innerHTML": "<p>Get it on the App Store</p>",
+                  "baseStyles": {
+                    "alignItems": "center",
+                    "backgroundColor": "#171717",
+                    "borderRadius": "12px",
+                    "display": "flex",
+                    "justifyContent": "center",
+                    "paddingBottom": "12px",
+                    "paddingLeft": "14px",
+                    "paddingRight": "14px",
+                    "paddingTop": "12px"
+                  },
+                  "mobileStyles": {},
+                  "tabletStyles": {},
+                  "rawStyles": {},
+                  "classes": [],
+                  "dataKey": null,
+                  "dynamicValues": [],
+                  "blockClientScript": "",
+                  "blockDataScript": "",
+                  "props": {},
+                  "customAttributes": {},
+                  "activeState": null
+                },
+                {
+                  "blockId": "qwertyuiop",
+                  "element": "a",
+                  "blockName": "android-button",
+                  "children": [],
+                  "attributes": {
+                    "href": "/android"
+                  },
+                  "innerHTML": "<p>Get it on Google Play</p>",
+                  "baseStyles": {
+                    "alignItems": "center",
+                    "backgroundColor": "#171717",
+                    "borderRadius": "12px",
+                    "display": "flex",
+                    "justifyContent": "center",
+                    "paddingBottom": "12px",
+                    "paddingLeft": "14px",
+                    "paddingRight": "14px",
+                    "paddingTop": "12px"
+                  },
+                  "mobileStyles": {},
+                  "tabletStyles": {},
+                  "rawStyles": {},
+                  "classes": [],
+                  "dataKey": null,
+                  "dynamicValues": [],
+                  "blockClientScript": "",
+                  "blockDataScript": "",
+                  "props": {},
+                  "customAttributes": {},
+                  "activeState": null
+                }
+              ],
+              "baseStyles": {
+                "alignItems": "center",
+                "display": "flex",
+                "flexDirection": "row",
+                "gap": "16px",
+                "justifyContent": "space-between",
+                "paddingBottom": "120px",
+                "paddingLeft": "80px",
+                "paddingTop": "120px",
+                "width": "100%"
+              },
+              "mobileStyles": {
+                "flexDirection": "column"
+              },
+              "tabletStyles": {},
+              "rawStyles": {},
+              "classes": [],
+              "dataKey": null,
+              "dynamicValues": [],
+              "blockClientScript": "",
+              "blockDataScript": "",
+              "props": {},
+              "customAttributes": {},
+              "activeState": null
+            }
+          ],
+          "baseStyles": {
+            "alignItems": "center",
+            "display": "flex",
+            "flexDirection": "column",
+            "justifyContent": "center",
+            "width": "100%"
+          },
+          "mobileStyles": {},
+          "tabletStyles": {},
+          "rawStyles": {},
+          "classes": [],
+          "dataKey": null,
+          "dynamicValues": [],
+          "blockClientScript": "",
+          "blockDataScript": "",
+          "props": {},
+          "customAttributes": {},
+          "activeState": null
+        },
+        {
+          "blockId": "asdfghjkl123",
+          "element": "div",
+          "blockName": "phone-mockup",
+          "children": [],
+          "baseStyles": {
+            "backgroundImage": "phone-image",
+            "backgroundSize": "cover",
+            "backgroundPosition": "center",
+            "height": "500px",
+            "width": "300px"
+          },
+          "mobileStyles": {},
+          "tabletStyles": {},
+          "rawStyles": {},
+          "classes": [],
+          "dataKey": null,
+          "dynamicValues": [],
+          "blockClientScript": "",
+          "blockDataScript": "",
+          "props": {},
+          "customAttributes": {},
+          "activeState": null
+        }
+      ],
+      "baseStyles": {
+        "alignItems": "center",
+        "display": "flex",
+        "flexDirection": "column",
+        "flexShrink": 0,
+        "position": "relative"
+      },
+      "mobileStyles": {},
+      "tabletStyles": {},
+      "rawStyles": {},
+      "classes": [],
+      "dataKey": null,
+      "dynamicValues": [],
+      "blockClientScript": "",
+      "blockDataScript": "",
+      "props": {},
+      "customAttributes": {},
+      "activeState": null
+    }
+  ]
+}

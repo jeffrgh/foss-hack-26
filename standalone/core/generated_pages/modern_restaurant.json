@@ -1,0 +1,269 @@
+{
+  "page_title": "Upscale Restaurant",
+  "blocks": [
+    {
+      "blockId": "root",
+      "element": "div",
+      "originalElement": "body",
+      "draggable": false,
+      "children": [
+        {
+          "blockId": "7m8j9i4b6",
+          "element": "header",
+          "blockName": "hero",
+          "children": [
+            {
+              "blockId": "f4g8h5k7d",
+              "element": "div",
+              "blockName": "background",
+              "children": [],
+              "innerHTML": "<p style='position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center;'></p>",
+              "baseStyles": {
+                "backgroundImage": "url('/background-image.jpg')",
+                "height": "100vh",
+                "position": "relative",
+                "width": "100%"
+              },
+              "mobileStyles": {},
+              "tabletStyles": {},
+              "rawStyles": {},
+              "classes": [],
+              "dataKey": null,
+              "dynamicValues": [],
+              "blockClientScript": "",
+              "blockDataScript": "",
+              "props": {},
+              "customAttributes": {},
+              "activeState": null
+            }
+          ],
+          "baseStyles": {
+            "alignItems": "center",
+            "display": "flex",
+            "flexDirection": "column",
+            "justifyContent": "center",
+            "width": "100%"
+          },
+          "mobileStyles": {},
+          "tabletStyles": {},
+          "rawStyles": {},
+          "classes": [],
+          "dataKey": null,
+          "dynamicValues": [],
+          "blockClientScript": "",
+          "blockDataScript": "",
+          "props": {},
+          "customAttributes": {},
+          "activeState": null
+        },
+        {
+          "blockId": "1o2i3p4q5",
+          "element": "section",
+          "blockName": "menu",
+          "children": [
+            {
+              "blockId": "g6h7j8k9l",
+              "element": "div",
+              "blockName": "column",
+              "children": [
+                {
+                  "blockId": "mnbvcxzas",
+                  "element": "h2",
+                  "children": [],
+                  "innerHTML": "Menu",
+                  "baseStyles": {
+                    "color": "#FFFFFF",
+                    "fontSize": "24px",
+                    "fontWeight": "bold",
+                    "textAlign": "center"
+                  },
+                  "mobileStyles": {},
+                  "tabletStyles": {},
+                  "rawStyles": {},
+                  "classes": [],
+                  "dataKey": null,
+                  "dynamicValues": [],
+                  "blockClientScript": "",
+                  "blockDataScript": "",
+                  "props": {},
+                  "customAttributes": {},
+                  "activeState": null
+                },
+                {
+                  "blockId": "poiuytrewq",
+                  "element": "p",
+                  "children": [],
+                  "innerHTML": "<p>Our menu features a variety of dishes to suit every taste.</p>",
+                  "baseStyles": {
+                    "color": "#FFFFFF",
+                    "fontSize": "16px",
+                    "textAlign": "center"
+                  },
+                  "mobileStyles": {},
+                  "tabletStyles": {},
+                  "rawStyles": {},
+                  "classes": [],
+                  "dataKey": null,
+                  "dynamicValues": [],
+                  "blockClientScript": "",
+                  "blockDataScript": "",
+                  "props": {},
+                  "customAttributes": {},
+                  "activeState": null
+                }
+              ],
+              "baseStyles": {
+                "alignItems": "center",
+                "display": "flex",
+                "flexDirection": "column",
+                "justifyContent": "center",
+                "width": "50%"
+              },
+              "mobileStyles": {},
+              "tabletStyles": {},
+              "rawStyles": {},
+              "classes": [],
+              "dataKey": null,
+              "dynamicValues": [],
+              "blockClientScript": "",
+              "blockDataScript": "",
+              "props": {},
+              "customAttributes": {},
+              "activeState": null
+            },
+            {
+              "blockId": "asdfghjkl",
+              "element": "div",
+              "blockName": "column",
+              "children": [
+                {
+                  "blockId": "zxcvbnm",
+                  "element": "h2",
+                  "children": [],
+                  "innerHTML": "Specials",
+                  "baseStyles": {
+                    "color": "#FFFFFF",
+                    "fontSize": "24px",
+                    "fontWeight": "bold",
+                    "textAlign": "center"
+                  },
+                  "mobileStyles": {},
+                  "tabletStyles": {},
+                  "rawStyles": {},
+                  "classes": [],
+                  "dataKey": null,
+                  "dynamicValues": [],
+                  "blockClientScript": "",
+                  "blockDataScript": "",
+                  "props": {},
+                  "customAttributes": {},
+                  "activeState": null
+                },
+                {
+                  "blockId": "poiuytrewq",
+                  "element": "p",
+                  "children": [],
+                  "innerHTML": "<p>Our specials change seasonally.</p>",
+                  "baseStyles": {
+                    "color": "#FFFFFF",
+                    "fontSize": "16px",
+                    "textAlign": "center"
+                  },
+                  "mobileStyles": {},
+                  "tabletStyles": {},
+                  "rawStyles": {},
+                  "classes": [],
+                  "dataKey": null,
+                  "dynamicValues": [],
+                  "blockClientScript": "",
+                  "blockDataScript": "",
+                  "props": {},
+                  "customAttributes": {},
+                  "activeState": null
+                }
+              ],
+              "baseStyles": {
+                "alignItems": "center",
+                "display": "flex",
+                "flexDirection": "column",
+                "justifyContent": "center",
+                "width": "50%"
+              },
+              "mobileStyles": {},
+              "tabletStyles": {},
+              "rawStyles": {},
+              "classes": [],
+              "dataKey": null,
+              "dynamicValues": [],
+              "blockClientScript": "",
+              "blockDataScript": "",
+              "props": {},
+              "customAttributes": {},
+              "activeState": null
+            }
+          ],
+          "baseStyles": {
+            "alignItems": "center",
+            "display": "flex",
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+            "width": "100%"
+          },
+          "mobileStyles": {},
+          "tabletStyles": {},
+          "rawStyles": {},
+          "classes": [],
+          "dataKey": null,
+          "dynamicValues": [],
+          "blockClientScript": "",
+          "blockDataScript": "",
+          "props": {},
+          "customAttributes": {},
+          "activeState": null
+        },
+        {
+          "blockId": "4e5d6f7g8",
+          "element": "button",
+          "children": [],
+          "innerHTML": "Book a Table",
+          "baseStyles": {
+            "backgroundColor": "#333333",
+            "color": "#FFFFFF",
+            "fontSize": "18px",
+            "padding": "10px 20px",
+            "textAlign": "center"
+          },
+          "mobileStyles": {},
+          "tabletStyles": {},
+          "rawStyles": {},
+          "classes": [],
+          "dataKey": null,
+          "dynamicValues": [],
+          "blockClientScript": "",
+          "blockDataScript": "",
+          "props": {},
+          "customAttributes": {},
+          "activeState": null
+        }
+      ],
+      "baseStyles": {
+        "alignItems": "center",
+        "display": "flex",
+        "flexDirection": "column",
+        "flexShrink": 0,
+        "position": "relative"
+      },
+      "mobileStyles": {},
+      "tabletStyles": {},
+      "rawStyles": {},
+      "classes": [],
+      "dataKey": null,
+      "dynamicValues": [],
+      "blockClientScript": "",
+      "blockDataScript": "",
+      "props": {},
+      "customAttributes": {},
+      "activeState": null
+    }
+  ]
+}

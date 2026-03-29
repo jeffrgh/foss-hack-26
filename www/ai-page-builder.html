@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Page Builder</title>
+<meta name="no-breadcrumbs" content="1">
+{% include "frappe/templates/includes/head.html" %}
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500&family=Space_Grotesk:wght@400;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "primary": "#b6a0ff",
+        "frappe-blue": "#0089FF",
+        "background": "#0a0a0b",
+        "on-surface": "#f8fafc",
+        "on-surface-variant": "#94a3b8",
+        "surface": "#0a0a0b",
+        "surface-container": "#111113",
+        "surface-container-low": "#0d0d0f",
+        "surface-container-high": "#171719",
+        "surface-variant": "#1c1c1e",
+        "outline": "#334155",
+        "outline-variant": "#1e293b",
+      },
+      fontFamily: {
+        "headline": ["Manrope", "sans-serif"],
+        "body": ["Inter", "sans-serif"],
+        "label": ["Space Grotesk", "sans-serif"]
+      },
+    },
+  },
+}
+</script>
+<style>
+.material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 20; }
+.glass-panel { background: rgba(17,17,19,0.4); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); }
+.neon-border { position: relative; }
+.neon-border::after {
+  content:''; position:absolute; inset:0; border-radius:inherit; padding:1px;
+  background:linear-gradient(135deg,rgba(182,160,255,0.1),transparent 50%,rgba(255,151,184,0.05));
+  mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+  -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+  -webkit-mask-composite:xor; mask-composite:exclude; pointer-events:none;
+}
+.pulse { animation: pulse 3s infinite ease-in-out; }
+@keyframes pulse { 0%,100%{opacity:.6} 50%{opacity:1} }
+.spinner { display:inline-block; width:14px; height:14px; border:2px solid rgba(255,255,255,0.2); border-top-color:#fff; border-radius:50%; animation:spin .6s linear infinite; }
+.spinner-dark { border-color:rgba(0,0,0,0.15); border-top-color:#000; }
+@keyframes spin { to{transform:rotate(360deg)} }
+::-webkit-scrollbar{width:4px} ::-webkit-scrollbar-track{background:transparent} ::-webkit-scrollbar-thumb{background:#334155;border-radius:10px}
+pre { font-family:'Fira Code','Courier New',monospace; font-size:11px; line-height:1.6; color:#555; white-space:pre-wrap; word-break:break-all; }
+</style>
+</head>
+<body class="bg-background text-on-surface font-body min-h-screen antialiased overflow-hidden">
+<script>
+  var csrf_token = '{{ frappe.session.csrf_token }}';
+</script>
+<nav class="fixed top-0 w-full flex justify-between items-center px-10 h-16 bg-background/80 backdrop-blur-xl z-50 border-b border-outline/10">
+  <div class="flex items-center gap-2">
+    <span class="w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_rgba(182,160,255,0.8)]"></span>
+    <span class="text-sm font-bold text-white tracking-widest font-headline uppercase">AI Page Builder</span>
+  </div>
+  <div class="flex items-center gap-3">
+    <div class="px-3 py-1.5 bg-surface-container-low rounded-lg border border-outline/10 flex items-center gap-2">
+      <span class="text-[9px] font-label uppercase tracking-widest text-zinc-500">Ollama</span>
+      <div id="ollama-dot" class="w-1.5 h-1.5 rounded-full bg-zinc-600"></div>
+    </div>
+    <div class="px-3 py-1.5 bg-surface-container-low rounded-lg border border-outline/10 flex items-center gap-2">
+      <span class="text-[9px] font-label uppercase tracking-widest text-zinc-500">Frappe</span>
+      <div class="w-1.5 h-1.5 rounded-full bg-frappe-blue shadow-[0_0_8px_rgba(0,137,255,0.8)] pulse"></div>
+    </div>
+  </div>
+</nav>
+
+<aside class="fixed left-0 top-16 bottom-0 hidden md:flex flex-col py-8 w-16 bg-background border-r border-outline/10 items-center z-40">
+  <a class="p-3 bg-frappe-blue/10 text-frappe-blue rounded-xl" href="#" title="Builder">
+    <span class="material-symbols-outlined text-xl">auto_awesome</span>
+  </a>
+</aside>
+
+<main class="md:ml-16 pt-16 h-screen flex flex-col overflow-hidden">
+  <header class="px-10 py-6 max-w-[1500px] mx-auto w-full shrink-0">
+    <h1 class="text-3xl font-headline font-bold tracking-tight text-white mb-1">Build New Page</h1>
+    <p class="text-on-surface-variant text-sm">Describe a page in plain English — generate and import into Frappe Builder in seconds.</p>
+  </header>
+
+  <div class="flex-1 grid grid-cols-1 lg:grid-cols-12 gap-8 px-10 pb-6 max-w-[1500px] mx-auto w-full min-h-0">
+
+    <section class="lg:col-span-4 flex flex-col min-h-0">
+      <div class="glass-panel p-7 rounded-3xl neon-border border border-outline/5 flex flex-col gap-6 h-full overflow-y-auto">
+        
+        <div class="space-y-2 shrink-0">
+          <label class="font-label text-[10px] uppercase tracking-[0.2em] text-zinc-500 font-bold">LLM Provider</label>
+          <div class="relative">
+            <select id="provider" onchange="toggleApiKey()" class="w-full bg-surface-container border border-outline/20 rounded-xl px-4 py-3.5 font-headline text-sm appearance-none text-on-surface outline-none cursor-pointer hover:border-outline/40 transition-all focus:ring-1 focus:ring-primary/40">
+              <option value="Local Ollama">Local Ollama</option>
+              <option value="Groq">Groq</option>
+              <option value="OpenAI">OpenAI</option>
+              <option value="Gemini" selected>Gemini</option>
+            </select>
+            <span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-zinc-500 text-lg">unfold_more</span>
+          </div>
+        </div>
+
+        <div id="api-key-row" class="space-y-2 shrink-0">
+          <label class="font-label text-[10px] uppercase tracking-[0.2em] text-zinc-500 font-bold">API Key</label>
+          <input type="password" id="api-key" placeholder="Paste your API key here" class="w-full bg-surface-container border border-outline/20 rounded-xl px-4 py-3.5 text-sm text-on-surface outline-none placeholder:text-zinc-600 focus:ring-1 focus:ring-primary/40 transition-all"/>
+        </div>
+
+        <div class="space-y-2 flex-1 flex flex-col min-h-[160px]">
+          <label class="font-label text-[10px] uppercase tracking-[0.2em] text-zinc-500 font-bold">Description</label>
+          <textarea id="description" placeholder="A dark landing page for a coffee shop with a bold hero, tagline, and order button..." class="flex-1 w-full bg-surface-container border border-outline/20 rounded-2xl px-4 py-4 text-sm text-on-surface outline-none placeholder:text-zinc-600 focus:ring-1 focus:ring-primary/40 transition-all resize-none leading-relaxed"></textarea>
+        </div>
+
+        <button id="generate-btn" onclick="generate()" class="w-full py-4 bg-white text-black font-headline font-bold text-sm rounded-2xl hover:bg-primary hover:text-white transition-all flex items-center justify-center gap-2 shrink-0 active:scale-[0.99]">
+          <span class="material-symbols-outlined text-lg">bolt</span>
+          Generate Page
+        </button>
+
+        <div class="pt-4 border-t border-outline/10 shrink-0">
+          <p class="font-label text-[10px] uppercase tracking-[0.2em] text-zinc-500 font-bold mb-3">Quick Presets</p>
+          <div class="grid grid-cols-2 gap-2">
+            <button onclick="setDesc('Restaurant homepage with navbar, hero section, menu cards, and footer')" class="px-3 py-2.5 bg-surface-container hover:bg-surface-variant text-zinc-400 hover:text-white rounded-lg font-label text-[10px] tracking-widest transition-all border border-outline/10 uppercase">Restaurant</button>
+            <button onclick="setDesc('SaaS landing page with hero, feature grid, pricing table, and footer')" class="px-3 py-2.5 bg-surface-container hover:bg-surface-variant text-zinc-400 hover:text-white rounded-lg font-label text-[10px] tracking-widest transition-all border border-outline/10 uppercase">SaaS</button>
+            <button onclick="setDesc('Personal portfolio with about section, project cards, skills, and contact form')" class="px-3 py-2.5 bg-surface-container hover:bg-surface-variant text-zinc-400 hover:text-white rounded-lg font-label text-[10px] tracking-widest transition-all border border-outline/10 uppercase">Portfolio</button>
+            <button onclick="setDesc('E-commerce homepage with hero banner, product grid, and newsletter footer')" class="px-3 py-2.5 bg-surface-container hover:bg-surface-variant text-zinc-400 hover:text-white rounded-lg font-label text-[10px] tracking-widest transition-all border border-outline/10 uppercase">E-commerce</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="lg:col-span-8 flex flex-col gap-5 min-h-0">
+      
+      <div class="flex-1 glass-panel rounded-3xl neon-border border border-outline/5 flex flex-col overflow-hidden min-h-0">
+
+        <div class="h-12 border-b border-outline/10 flex items-center justify-between px-6 bg-surface-container-low/50 shrink-0">
+          <div class="flex items-center gap-3">
+            <div class="flex gap-1.5">
+              <div class="w-2 h-2 rounded-full bg-zinc-800"></div>
+              <div class="w-2 h-2 rounded-full bg-zinc-800"></div>
+              <div class="w-2 h-2 rounded-full bg-zinc-800"></div>
+            </div>
+            <span class="text-[10px] font-label uppercase tracking-widest text-zinc-500">Output</span>
+          </div>
+          
+          <div class="flex gap-2">
+            <button id="toggle-json-btn" onclick="toggleJson()" class="hidden h-7 px-3 bg-surface-container text-zinc-400 rounded-lg font-label text-[10px] uppercase tracking-widest border border-outline/20 hover:text-white transition-all items-center gap-1.5 flex">
+              <span class="material-symbols-outlined text-sm">code_blocks</span><span id="toggle-text">Hide JSON</span>
+            </button>
+            <a id="builder-link" href="#" target="_blank" class="hidden h-7 px-4 bg-white text-black rounded-lg font-label text-[10px] font-bold uppercase tracking-widest hover:bg-zinc-200 transition-all items-center gap-1.5 flex shadow-[0_0_12px_rgba(255,255,255,0.15)]">
+              <span class="material-symbols-outlined text-sm">launch</span>Open in Builder
+            </a>
+            <button id="import-btn" onclick="importPage()" class="hidden h-7 px-3 bg-frappe-blue/20 text-frappe-blue rounded-lg font-label text-[10px] uppercase tracking-widest border border-frappe-blue/30 hover:bg-frappe-blue hover:text-white transition-all items-center gap-1.5 flex">
+              <span class="material-symbols-outlined text-sm">upload</span>Import
+            </button>
+          </div>
+        </div>
+
+        <div id="alert-box" class="hidden mx-5 mt-4 px-4 py-3 rounded-xl text-xs font-body shrink-0 z-10"></div>
+
+        <div id="output-empty" class="flex-1 flex flex-col items-center justify-center text-center p-16 relative">
+          <div class="absolute inset-0 pointer-events-none overflow-hidden">
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-primary/5 rounded-full blur-[80px]"></div>
+          </div>
+          <div class="relative z-10 flex flex-col items-center">
+            <div class="w-14 h-14 mb-6 bg-surface-container rounded-2xl flex items-center justify-center border border-outline/10 text-zinc-600">
+              <span class="material-symbols-outlined text-2xl">terminal</span>
+            </div>
+            <h3 class="font-headline text-lg font-bold text-white mb-2">Ready for Generation</h3>
+            <p class="text-zinc-500 text-sm max-w-xs leading-relaxed">Describe your page on the left and hit Generate. The JSON output will appear here.</p>
+          </div>
+        </div>
+
+        <div id="json-container" class="hidden flex-1 overflow-y-auto p-6 relative bg-[#0d0d0f]">
+          <pre id="json-output"></pre>
+        </div>
+        
+        <div id="json-collapsed-msg" class="hidden flex-1 flex flex-col items-center justify-center text-center p-16">
+            <span class="material-symbols-outlined text-4xl text-emerald-500/50 mb-4">check_circle</span>
+            <h3 class="font-headline text-lg font-bold text-white mb-1">Page Generated Successfully</h3>
+            <p class="text-zinc-500 text-sm">The JSON is hidden to save space. You can import or refine it below.</p>
+        </div>
+
+      </div>
+
+      <div class="glass-panel p-3.5 rounded-2xl border border-outline/5 flex items-center gap-3 shrink-0">
+        <div class="flex-1 bg-surface-container-low rounded-xl border border-outline/20 px-4 h-11 flex items-center">
+          <span class="material-symbols-outlined text-zinc-600 mr-3 text-base">edit_note</span>
+          <input id="refinement" type="text" placeholder="Refine your page — make the hero dark, add a testimonials section..." class="w-full bg-transparent border-none focus:ring-0 outline-none text-sm text-on-surface placeholder:text-zinc-600"/>
+        </div>
+        <button id="refine-btn" onclick="refine()" class="h-11 px-6 bg-zinc-900 text-white font-headline font-bold text-xs rounded-xl hover:bg-zinc-800 border border-outline/30 transition-all flex items-center gap-2 uppercase tracking-wider">
+          Apply
+        </button>
+      </div>
+    </section>
+  </div>
+</main>
+
+<div class="fixed inset-0 -z-10 pointer-events-none">
+  <div class="absolute inset-0 bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:64px_64px] opacity-20"></div>
+  <div class="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background"></div>
+</div>
+
+<script>
+let currentPage = null;
+let currentJson = null;
+
+// Ensure API key field is shown if provider is not local
+toggleApiKey();
+
+function toggleApiKey() {
+  document.getElementById('api-key-row').classList.toggle('hidden', document.getElementById('provider').value === 'Local Ollama');
+}
+
+function setDesc(text) {
+  document.getElementById('description').value = text;
+}
+
+// NEW: Toggle JSON visibility
+function toggleJson() {
+    const jsonOutput = document.getElementById('json-container');
+    const collapsedMsg = document.getElementById('json-collapsed-msg');
+    const toggleText = document.getElementById('toggle-text');
+    
+    if (jsonOutput.classList.contains('hidden')) {
+        jsonOutput.classList.remove('hidden');
+        collapsedMsg.classList.add('hidden');
+        toggleText.textContent = 'Hide JSON';
+    } else {
+        jsonOutput.classList.add('hidden');
+        collapsedMsg.classList.remove('hidden');
+        toggleText.textContent = 'Show JSON';
+    }
+}
+
+function showAlert(msg, type) {
+  const el = document.getElementById('alert-box');
+  el.className = type === 'success'
+    ? 'mx-5 mt-4 px-4 py-3 rounded-xl text-xs font-body shrink-0 z-10 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400'
+    : 'mx-5 mt-4 px-4 py-3 rounded-xl text-xs font-body shrink-0 z-10 bg-red-500/10 border border-red-500/20 text-red-400';
+  el.textContent = msg;
+  el.classList.remove('hidden');
+  if (type === 'success') setTimeout(() => el.classList.add('hidden'), 4000);
+}
+
+async function checkStatus() {
+  try {
+    const res = await fetch('/api/method/ai_page_builder.api.generate.get_status', {
+      headers: {'X-Frappe-CSRF-Token': getCsrf()}
+    });
+    if (!res.ok) return;
+    const data = await res.json();
+    const dot = document.getElementById('ollama-dot');
+    dot.className = 'w-1.5 h-1.5 rounded-full ' + (data.message.ollama ? 'bg-emerald-500 pulse' : 'bg-zinc-600');
+  } catch(e) {}
+}
+
+async function generate() {
+  const desc = document.getElementById('description').value.trim();
+  if (!desc) return;
+  const provider = document.getElementById('provider').value;
+  const apiKey = document.getElementById('api-key').value.trim() || null;
+  const btn = document.getElementById('generate-btn');
+  
+  btn.innerHTML = '<span class="spinner spinner-dark"></span>Generating...';
+  btn.disabled = true;
+  document.getElementById('alert-box').classList.add('hidden');
+  
+  try {
+    const formData = new FormData();
+    formData.append('description', desc);
+    formData.append('provider', provider);
+    if (apiKey) formData.append('api_key', apiKey);
+    
+    const res = await fetch('/api/method/ai_page_builder.api.generate.generate_page', {
+        method: 'POST',
+        headers: {'X-Frappe-CSRF-Token': getCsrf()},
+        body: formData
+    });
+    const json = await res.json();
+    const data = json.message;
+    
+    if (!data.ok) throw new Error(data.error || 'Generation failed');
+    
+    currentJson = data.page;
+    currentPage = null;
+    
+    // UI Updates
+    document.getElementById('output-empty').classList.add('hidden');
+    document.getElementById('json-collapsed-msg').classList.add('hidden');
+    document.getElementById('json-container').classList.remove('hidden');
+    document.getElementById('json-output').textContent = JSON.stringify(currentJson, null, 2);
+    
+    document.getElementById('import-btn').classList.remove('hidden');
+    document.getElementById('builder-link').classList.add('hidden');
+    document.getElementById('toggle-json-btn').classList.remove('hidden');
+    document.getElementById('toggle-text').textContent = 'Hide JSON';
+    
+    // Automatically collapse JSON after generation for better UX
+    setTimeout(toggleJson, 500); 
+
+  } catch(e) {
+    showAlert(e.message || 'Generation failed', 'error');
+    document.getElementById('output-empty').classList.remove('hidden');
+    document.getElementById('json-container').classList.add('hidden');
+    document.getElementById('toggle-json-btn').classList.add('hidden');
+  }
+  btn.innerHTML = '<span class="material-symbols-outlined text-lg">bolt</span>Generate Page';
+  btn.disabled = false;
+}
+
+async function importPage() {
+  if (!currentJson) return;
+  const btn = document.getElementById('import-btn');
+  btn.innerHTML = '<span class="spinner"></span>Importing...';
+  btn.disabled = true;
+  try {
+    const formData = new FormData();
+    formData.append('page_data', JSON.stringify(currentJson));
+    const res = await fetch('/api/method/ai_page_builder.api.generate.import_page', {
+      method: 'POST',
+      headers: {'X-Frappe-CSRF-Token': getCsrf()},
+      body: formData
+    });
+    const json = await res.json();
+    const data = json.message;
+    if (!data.ok) throw new Error(data.error || 'Import failed');
+    
+    currentPage = data.name;
+    const link = document.getElementById('builder-link');
+    link.href = `/builder/page/${currentPage}`;
+    link.classList.remove('hidden');
+    btn.classList.add('hidden');
+    showAlert('Page imported successfully!', 'success');
+  } catch(e) {
+    showAlert(e.message || 'Import failed', 'error');
+  }
+  btn.innerHTML = '<span class="material-symbols-outlined text-sm">upload</span>Import';
+  btn.disabled = false;
+}
+
+async function refine() {
+  if (!currentPage || !currentJson) { showAlert('Generate and import a page first', 'error'); return; }
+  const refinement = document.getElementById('refinement').value.trim();
+  if (!refinement) return;
+  const provider = document.getElementById('provider').value;
+  const apiKey = document.getElementById('api-key').value.trim() || null;
+  const btn = document.getElementById('refine-btn');
+  
+  btn.innerHTML = '<span class="spinner"></span>Refining...';
+  btn.disabled = true;
+  
+  try {
+    const formData = new FormData();
+    formData.append('page_name', currentPage);
+    formData.append('page_data', JSON.stringify(currentJson));
+    formData.append('refinement', refinement);
+    formData.append('provider', provider);
+    if (apiKey) formData.append('api_key', apiKey);
+    
+    const res = await fetch('/api/method/ai_page_builder.api.generate.refine_page', {
+      method: 'POST',
+      headers: {'X-Frappe-CSRF-Token': getCsrf()},
+      body: formData
+    });
+    const json = await res.json();
+    const data = json.message;
+    if (!data.ok) throw new Error(data.error || 'Refinement failed');
+    
+    currentJson = data.page;
+    document.getElementById('json-output').textContent = JSON.stringify(currentJson, null, 2);
+    document.getElementById('refinement').value = '';
+    
+    // Automatically hide JSON on refine success so user can see success alert
+    if (!document.getElementById('json-container').classList.contains('hidden')) {
+        toggleJson();
+    }
+    
+    showAlert('Page updated successfully! Refresh Builder to see changes.', 'success');
+  } catch(e) {
+    showAlert(e.message || 'Refinement failed', 'error');
+  }
+  btn.innerHTML = 'Apply';
+  btn.disabled = false;
+}
+
+function getCsrf() {
+  return window.csrf_token || '';
+}
+
+checkStatus();
+setInterval(checkStatus, 15000);
+</script>
+</body>
+</html>
