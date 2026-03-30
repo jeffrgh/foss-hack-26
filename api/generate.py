@@ -213,7 +213,7 @@ def generate_page(description: str, provider: str = "Local Ollama", api_key: str
         return {"ok": False, "error": str(e)}
 
 
-@frappe.whitelist(allow_guest=True)
+@frappe.whitelist(allow_guest=False)
 def import_page(page_data: str):
     try:
         data = json.loads(page_data)
@@ -236,7 +236,7 @@ def import_page(page_data: str):
         return {"ok": False, "error": str(e)}
 
 
-@frappe.whitelist(allow_guest=True)
+@frappe.whitelist(allow_guest=False)
 def refine_page(page_name: str, page_data: str, refinement: str, provider: str = "Local Ollama", api_key: str | None = None):
     try:
         current = json.loads(page_data)
@@ -269,3 +269,7 @@ def get_status():
     except:
         pass
     return {"ollama": ollama_ok, "frappe": True}
+
+def has_app_permission():
+
+    return frappe.session.user != "Guest"
