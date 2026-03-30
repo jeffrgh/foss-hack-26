@@ -94,3 +94,8 @@ Various Large Language Models (including Gemini, claude and local Ollama models)
 ## License
 
 MIT
+# foss-hack-26
+Project for FOSS hack 2026.
+
+
+

@@ -1,0 +1,266 @@
+{
+  "page_title": "Product Detail",
+  "blocks": [
+    {
+      "blockId": "root",
+      "element": "div",
+      "originalElement": "body",
+      "draggable": false,
+      "children": [
+        {
+          "blockId": "k3zg4e7uq",
+          "element": "section",
+          "blockName": "product",
+          "children": [
+            {
+              "blockId": "g1s4f5r6t",
+              "element": "div",
+              "blockName": "image",
+              "children": [
+                {
+                  "blockId": "b7y8u9i0p",
+                  "element": "img",
+                  "children": [],
+                  "innerHTML": "",
+                  "attributes": {
+                    "src": "/product-image.jpg"
+                  },
+                  "baseStyles": {
+                    "height": "500px",
+                    "objectFit": "cover",
+                    "width": "500px"
+                  },
+                  "mobileStyles": {},
+                  "tabletStyles": {},
+                  "rawStyles": {},
+                  "classes": [],
+                  "dataKey": null,
+                  "dynamicValues": [],
+                  "blockClientScript": "",
+                  "blockDataScript": "",
+                  "props": {},
+                  "customAttributes": {},
+                  "activeState": null
+                }
+              ],
+              "baseStyles": {
+                "display": "flex",
+                "flexDirection": "row",
+                "justifyContent": "center",
+                "width": "100%"
+              },
+              "mobileStyles": {},
+              "tabletStyles": {},
+              "rawStyles": {},
+              "classes": [],
+              "dataKey": null,
+              "dynamicValues": [],
+              "blockClientScript": "",
+              "blockDataScript": "",
+              "props": {},
+              "customAttributes": {},
+              "activeState": null
+            },
+            {
+              "blockId": "p2o3i4u5y",
+              "element": "div",
+              "blockName": "details",
+              "children": [
+                {
+                  "blockId": "t6r7e8n9o",
+                  "element": "h1",
+                  "children": [],
+                  "innerHTML": "Product Title",
+                  "baseStyles": {
+                    "color": "#171717",
+                    "fontSize": "24px",
+                    "fontWeight": "bold",
+                    "textAlign": "center"
+                  },
+                  "mobileStyles": {},
+                  "tabletStyles": {},
+                  "rawStyles": {},
+                  "classes": [],
+                  "dataKey": null,
+                  "dynamicValues": [],
+                  "blockClientScript": "",
+                  "blockDataScript": "",
+                  "props": {},
+                  "customAttributes": {},
+                  "activeState": null
+                },
+                {
+                  "blockId": "k1j2l3m4n",
+                  "element": "p",
+                  "children": [],
+                  "innerHTML": "<p>Price: $99.99</p>",
+                  "baseStyles": {
+                    "color": "#525252",
+                    "fontSize": "16px",
+                    "textAlign": "center"
+                  },
+                  "mobileStyles": {},
+                  "tabletStyles": {},
+                  "rawStyles": {},
+                  "classes": [],
+                  "dataKey": null,
+                  "dynamicValues": [],
+                  "blockClientScript": "",
+                  "blockDataScript": "",
+                  "props": {},
+                  "customAttributes": {},
+                  "activeState": null
+                }
+              ],
+              "baseStyles": {
+                "display": "flex",
+                "flexDirection": "column",
+                "justifyContent": "center",
+                "width": "100%"
+              },
+              "mobileStyles": {},
+              "tabletStyles": {},
+              "rawStyles": {},
+              "classes": [],
+              "dataKey": null,
+              "dynamicValues": [],
+              "blockClientScript": "",
+              "blockDataScript": "",
+              "props": {},
+              "customAttributes": {},
+              "activeState": null
+            },
+            {
+              "blockId": "f6g7h8i9j",
+              "element": "button",
+              "children": [],
+              "innerHTML": "Add to Cart",
+              "baseStyles": {
+                "backgroundColor": "#4CAF50",
+                "border": "none",
+                "color": "#fff",
+                "padding": "10px 20px",
+                "width": "100%"
+              },
+              "mobileStyles": {},
+              "tabletStyles": {},
+              "rawStyles": {},
+              "classes": [],
+              "dataKey": null,
+              "dynamicValues": [],
+              "blockClientScript": "",
+              "blockDataScript": "",
+              "props": {},
+              "customAttributes": {},
+              "activeState": null
+            }
+          ],
+          "baseStyles": {
+            "display": "flex",
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+            "width": "100%"
+          },
+          "mobileStyles": {},
+          "tabletStyles": {},
+          "rawStyles": {},
+          "classes": [],
+          "dataKey": null,
+          "dynamicValues": [],
+          "blockClientScript": "",
+          "blockDataScript": "",
+          "props": {},
+          "customAttributes": {},
+          "activeState": null
+        },
+        {
+          "blockId": "c4v5b6n7m",
+          "element": "section",
+          "blockName": "reviews",
+          "children": [
+            {
+              "blockId": "x8p9o7i6u5",
+              "element": "h2",
+              "children": [],
+              "innerHTML": "Customer Reviews",
+              "baseStyles": {
+                "color": "#171717",
+                "fontSize": "24px",
+                "fontWeight": "bold",
+                "textAlign": "center"
+              },
+              "mobileStyles": {},
+              "tabletStyles": {},
+              "rawStyles": {},
+              "classes": [],
+              "dataKey": null,
+              "dynamicValues": [],
+              "blockClientScript": "",
+              "blockDataScript": "",
+              "props": {},
+              "customAttributes": {},
+              "activeState": null
+            },
+            {
+              "blockId": "z2a3b4c5d",
+              "element": "p",
+              "children": [],
+              "innerHTML": "<p>4.5/5 stars</p>",
+              "baseStyles": {
+                "color": "#525252",
+                "fontSize": "16px",
+                "textAlign": "center"
+              },
+              "mobileStyles": {},
+              "tabletStyles": {},
+              "rawStyles": {},
+              "classes": [],
+              "dataKey": null,
+              "dynamicValues": [],
+              "blockClientScript": "",
+              "blockDataScript": "",
+              "props": {},
+              "customAttributes": {},
+              "activeState": null
+            }
+          ],
+          "baseStyles": {
+            "display": "flex",
+            "flexDirection": "column",
+            "justifyContent": "center",
+            "width": "100%"
+          },
+          "mobileStyles": {},
+          "tabletStyles": {},
+          "rawStyles": {},
+          "classes": [],
+          "dataKey": null,
+          "dynamicValues": [],
+          "blockClientScript": "",
+          "blockDataScript": "",
+          "props": {},
+          "customAttributes": {},
+          "activeState": null
+        }
+      ],
+      "baseStyles": {
+        "alignItems": "center",
+        "display": "flex",
+        "flexDirection": "column",
+        "flexShrink": 0,
+        "position": "relative"
+      },
+      "mobileStyles": {},
+      "tabletStyles": {},
+      "rawStyles": {},
+      "classes": [],
+      "dataKey": null,
+      "dynamicValues": [],
+      "blockClientScript": "",
+      "blockDataScript": "",
+      "props": {},
+      "customAttributes": {},
+      "activeState": null
+    }
+  ]
+}
